@@ -1,0 +1,12 @@
+import pandas as pd
+df=pd.DataFrame({'Numbers':range(1,121)})
+
+df.loc[(df['Numbers']%3==0) ,'fizzbuzz']='fizz'
+df.loc[(df['Numbers']%5==0) ,'fizzbuzz']='buzz'
+df.loc[((df["Numbers"]%3==0) 
+       & (df["Numbers"]%5==0)),"fizzbuzz"]= 'fizzbuzz'
+df.loc[(df['fizzbuzz'].isnull()),'fizzbuzz']= df['Numbers']
+
+ 
+print(df)
+    
